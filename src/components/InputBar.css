@@ -1,0 +1,16 @@
+.input-bar {
+  align-items: center;
+  background-color: #000000;
+  color: #666666;
+  display: flex;
+  font-size: 1.6em;
+  font-weight: bold;
+  flex: 1;
+  height: 4.5em;
+  outline: 1px solid #888888;
+}
+
+.operator {
+  background-color: #fe9241;
+  color: #ffffff;
+}
