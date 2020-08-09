@@ -10,7 +10,7 @@ import {create, all} from 'mathjs'
 
 const config = {}
 const math = create(all, config)
-const operators = ['+', '-', '*', '/']
+const operators = ['+', '-', '*', '/', '=']
 
 class App extends React.Component {
   constructor(props) {
@@ -25,15 +25,14 @@ class App extends React.Component {
 
   // Function to handle the button press of numbers on the calculator.
   handleNumber = val => {
-    // If the last button pressed was any of the following, + - * /
-    // then clear the display.
-    if (this.state.lastButtonPressWasOp) {
-      this.setState({
-        displayNum: '',
-        lastButtonPressWasOp: false
-      })
-    }
+    console.log('Entered handleNumber, val = %s', val)
     let newNum = this.state.displayNum
+
+    // If the last button pressed was any of the following, + - * /
+    // then clear what will be the updated displayNum state.
+    if (this.state.lastButtonPressWasOp) {
+      newNum = ''
+    }
     if (newNum.substring(newNum.length - 4, newNum.length) === 'e+21') {
       // TODO give a "number to large, try again" error
       return
@@ -45,7 +44,10 @@ class App extends React.Component {
     else {
       newNum += val
     }
-    this.setState({displayNum: newNum})
+    this.setState({
+      displayNum: newNum,
+      lastButtonPressWasOp: false
+    })
   }
 
   /*
@@ -53,17 +55,27 @@ class App extends React.Component {
     on the calculator.
   */
   handleOperator = val => {
-    // Make sure equationToCalc isn't empty before checking the last character.
-    if (this.state.equationToCalc !== '') {
+    console.log('Entered handle operator, val is %s', val)
+    if (this.state.equationToCalc === '' && this.state.displayNum === '') {
+      // TODO implement user input error
+      console.log('entered handleOperator error 1')
+      console.log('this.state.equationToCalc = %s', this.state.equationToCalc)
+      return
+    }
+    else {
       // If the last character in our current equation is any of the following, + - * /
       // and we receieve any of + - * /
       // then user input is invalid.
-      if (operators.includes(this.state.equationToCalc.slice(-1))) {
+      if (operators.includes(this.state.equationToCalc.slice(-1)) && this.state.displayNum === '') {
         // TODO implement user input error
+        console.log('entered handleOperator error 2')
+        console.log('this.state.equationToCalc = %s', this.state.equationToCalc)
+        console.log('this.state.displayNum = ', this.state.displayNum)
         return
       }
     }
 
+    console.log('handleOperator: got passed initial checks, nice')
     // Handle + - * / operators assuming user input is valid so far.
     if (val !== '=') {
       this.setState({
@@ -74,8 +86,9 @@ class App extends React.Component {
     }
 
     // Handle = operator.
-    let result = math.evaluate(this.state.equationToCalc)
-    let newEquation = this.state.equationToCalc
+    let result = math.evaluate(this.state.equationToCalc + this.state.displayNum)
+    let fullEquation = this.state.equationToCalc
+      + this.state.displayNum
       + '='
       + result
 
@@ -87,7 +100,7 @@ class App extends React.Component {
     let temp = this.state.resultsList
     if (this.state.resultsList.length === 10)
       temp.shift()
-    temp.push(newEquation)
+    temp.push(fullEquation)
     this.setState({
       displayNum: result,
       equationToCalc: '',
