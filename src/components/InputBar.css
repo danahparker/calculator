@@ -1,13 +1,21 @@
 .input-bar {
   align-items: center;
   background-color: #000000;
-  color: #666666;
+  color: #aaaaaa;
   display: flex;
-  font-size: 1.6em;
+  font-size: 1cm;
   font-weight: bold;
-  flex: 1;
-  height: 4.5em;
+  height: 3.5em;
+  width: inherit !important;
   outline: 1px solid #888888;
+  word-wrap: break-word;
+}
+
+.input-text {
+  text-overflow: ellipsis;
+  width: inherit;
+  height: inherit;
+  word-wrap: break-word;
 }
 
 .operator {

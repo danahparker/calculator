@@ -1,4 +1,12 @@
 import React from 'react';
 import './InputBar.css';
 
-export const InputBar = (props) => <div className="input-bar">{props.input}</div>;
+const InputBar = (props) => (
+  <div className="input-bar">
+    <p className="input-text">
+      {props.displayNum}
+    </p>
+  </div>
+);
+
+export default InputBar;

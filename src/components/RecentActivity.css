@@ -1,0 +1,11 @@
+.results-list {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  height: 40%;
+  width: 10%;
+  position: fixed;
+  background: lightblue;
+  border-radius: 7px;
+}
