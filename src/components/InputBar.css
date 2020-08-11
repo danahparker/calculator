@@ -1,14 +1,15 @@
 .input-bar {
-  align-items: center;
+  align-content: center;
   background-color: #000000;
-  color: #aaaaaa;
+  color: white;
   display: flex;
   font-size: 1cm;
   font-weight: bold;
-  height: 3.5em;
+  height: 3em;
   width: inherit !important;
   outline: 1px solid #888888;
   word-wrap: break-word;
+  text-align: left
 }
 
 .input-text {
@@ -16,6 +17,7 @@
   width: inherit;
   height: inherit;
   word-wrap: break-word;
+  margin-left: 4px;
 }
 
 .operator {

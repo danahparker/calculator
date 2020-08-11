@@ -6,13 +6,21 @@
     flex: 1;
     font-weight: lighter;
     font-size: 5em;
-    height: 3cm;
+    height: 2.5cm;
     justify-content: center;
     outline: 1px solid #888888;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .operator {
     background-color: #fe9241;
     color: #ffffff;
     font-weight: 145;
+}
+
+#plus-minus-button {
+    background-color: #c5c3cd;
 }

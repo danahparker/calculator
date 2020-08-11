@@ -3,9 +3,13 @@
   display: flex;
   flex: 1;
   flex-grow: 1;
-  height: 40%;
-  width: 10%;
+  height: 50%;
+  width: 37%;
   position: fixed;
-  background: lightblue;
+  background: lightcyan;
   border-radius: 7px;
+  word-wrap: break-word;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  overflow-y: scroll;
 }

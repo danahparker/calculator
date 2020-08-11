@@ -9,7 +9,8 @@
 .calc-wrapper {
     width: 400px;
     height: 400px;
-    margin-left: 20px;
+    margin-left: 300px;
+    padding: 10px;
 }
 
 .button-row {

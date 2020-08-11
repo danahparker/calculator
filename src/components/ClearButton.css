@@ -1,12 +1,16 @@
 .clear-button {
-    height: 3cm;
+    height: 2.5cm;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: lighter;
-    font-size: 5em;
+    font-size: 4em;
     background-color: #c5c3cd;
     color: #666666;
     flex: 1;
     outline: 1px solid #888888;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
